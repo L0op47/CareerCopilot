@@ -8,6 +8,7 @@ wheels/
 .env
 data/
 *.db
+local-skills/
 
 # Virtual environments
 .venv

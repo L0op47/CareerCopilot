@@ -1,6 +1,6 @@
 from fastapi import APIRouter,File,UploadFile
 from app.schemas.resumes import *
-from app.service.resumes_service import upload_resume,list_resumes,get_resume_detail,analyze_resume
+from app.service.resumes_service import upload_resume,list_resumes,get_resume_detail,analyze_resume,get_resume_analysis
 
 
 
@@ -25,4 +25,8 @@ def get_resume_detail_api(resume_id:int):
 def analyze_resume_api(resume_id:int):
     return analyze_resume(resume_id)
 
+
+@router.get("/{resume_id}/analysis",response_model=ResumeAnalysisResponse)
+def get_analysis_api(resume_id:int):
+    return get_resume_analysis(resume_id)
 
